@@ -27,6 +27,8 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
   use('WhoIsSethDaniel/toggle-lsp-diagnostics.nvim')
+  -- TODO 
+  -- add vimtex!!!!
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
