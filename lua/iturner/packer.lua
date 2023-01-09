@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
   use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
+  use('WhoIsSethDaniel/toggle-lsp-diagnostics.nvim')
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',

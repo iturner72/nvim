@@ -170,6 +170,11 @@ _G.packer_plugins = {
     path = "/Users/iturner.eth/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["toggle-lsp-diagnostics.nvim"] = {
+    loaded = true,
+    path = "/Users/iturner.eth/.local/share/nvim/site/pack/packer/start/toggle-lsp-diagnostics.nvim",
+    url = "https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/Users/iturner.eth/.local/share/nvim/site/pack/packer/start/undotree",
