@@ -1,2 +1,2 @@
 require("iturner.remap")
-print("hello from iturner")
+require("iturner.set")
