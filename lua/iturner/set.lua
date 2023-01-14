@@ -29,3 +29,6 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
+-- auto wrapping for md and tex files
+vim.cmd [[autocmd FileType markdown set tw=80 wrap]]
+vim.cmd [[autocmd FileType tex set tw=80 wrap]]
