@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
   use('WhoIsSethDaniel/toggle-lsp-diagnostics.nvim')
   use('lervag/vimtex')
+  use('christoomey/vim-tmux-navigator')
   -- TODO 
   -- add vimtex!!!!
 

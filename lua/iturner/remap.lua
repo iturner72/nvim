@@ -20,3 +20,12 @@ vim.keymap.set("n", "<Leader>s", function()
     vim.o.spell = not vim.o.spell
     print("spell: " .. tostring(vim.o.spell))
 end)
+
+vim.g.tmux_navigator_no_mappings = 1
+vim.api.nvim_set_keymap('n', '<C-h>', ':TmuxNavigateLeft<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-j>', ':TmuxNavigateDown<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-k>', ':TmuxNavigateUp<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-l>', ':TmuxNavigateRight<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-\\>', ':TmuxNavigatePrevious<CR>', {silent = true})
+
+
