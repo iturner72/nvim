@@ -6,7 +6,7 @@
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  
+
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
 	  -- or                            , branch = '0.1.x',
@@ -20,8 +20,8 @@ return require('packer').startup(function(use)
 		  vim.cmd('colorscheme rose-pine')
 	  end
   })
-  
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}) 
+
+  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
   use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
   use('WhoIsSethDaniel/toggle-lsp-diagnostics.nvim')
   use('lervag/vimtex')
   use('christoomey/vim-tmux-navigator')
+  use('keith/swift.vim')
   -- TODO 
   -- add vimtex!!!!
 

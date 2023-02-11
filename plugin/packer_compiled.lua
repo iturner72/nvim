@@ -165,6 +165,11 @@ _G.packer_plugins = {
     path = "/Users/iturner.eth/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
+  ["swift.vim"] = {
+    loaded = true,
+    path = "/Users/iturner.eth/.local/share/nvim/site/pack/packer/start/swift.vim",
+    url = "https://github.com/keith/swift.vim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/iturner.eth/.local/share/nvim/site/pack/packer/start/telescope.nvim",
