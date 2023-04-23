@@ -27,5 +27,3 @@ vim.api.nvim_set_keymap('n', '<C-j>', ':TmuxNavigateDown<CR>', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-k>', ':TmuxNavigateUp<CR>', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-l>', ':TmuxNavigateRight<CR>', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-\\>', ':TmuxNavigatePrevious<CR>', {silent = true})
-
-

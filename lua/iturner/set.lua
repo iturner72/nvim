@@ -29,6 +29,9 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
+vim.g.vimtex_view_method = 'skim'
+vim.g.maplocalleader = ","
+
 -- clipboard
 vim.opt.clipboard = "unnamedplus"
 
