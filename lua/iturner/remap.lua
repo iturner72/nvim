@@ -29,3 +29,16 @@ vim.api.nvim_set_keymap('n', '<C-k>', ':TmuxNavigateUp<CR>', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-l>', ':TmuxNavigateRight<CR>', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-\\>', ':TmuxNavigatePrevious<CR>', {silent = true})
 
+-- LuaSnip bindings 
+vim.cmd[[
+" Expand snippets in insert mode with Tab
+imap <silent><expr> <Tab> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' : '<Tab>'
+
+" Jump forward through tabstops in insert and visual mode with Control-[
+imap <silent><expr> <C-[> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-[>'
+smap <silent><expr> <C-[> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-[>'
+
+" Jump backward through tabstops in insert and visual mode with Shift-Tab
+imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+]]

@@ -11,4 +11,9 @@ return {
     { trig = "foo" },
     { t("Another snippet.") }
     ),
+
+    require("luasnip").snippet(
+    { trig = ";aaa", snippetType="autosnippet" },
+    { t("\\alpha"), }
+    ),
 }
