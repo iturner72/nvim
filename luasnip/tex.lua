@@ -1,16 +1,16 @@
 return {
     -- Greek letter snippets, autotriggered for efficiency
-    s({ trig=";aa", },
+    s({ trig=";aa", snippetType="autosnippet" },
         {
             t("\\alpha"),
         }
         ),
-    s({ trig=";ps" },
+    s({ trig=";ps", snippetType="autosnippet" },
         {
             t("\\psi"),
         }
         ),
-    s({ trig=";ph" },
+    s({ trig=";ph", snippetType="autosnippet" },
         {
             t("\\phi"),
         }
@@ -36,5 +36,45 @@ return {
         }
     ),
 
+    -- Example: text and insert nodes quickly become hard to read
+    s({trig="eq", dscr = "testing multiline"},
+    {
+        t({ -- using a table of strings for multiline text
+            "\\begin{equation}",
+            "    "
+        }),
+        i(1),
+        t({
+            "",
+            "\\end{equation}"
+
+        }),
+    }
+    ),
+
     -- Image template
+    s({trig="image", dscr="A LaTeX figure environment"},
+        {
+            t({
+                "\\begin{figure}[ht]",
+                "    \\centering",
+                "    \\includegraphics[width=8cm]{"
+                }),
+            i(1),
+            t({
+                "}",
+                "    \\caption{"
+            }),
+            i(2),
+            t({
+                "}",
+                "    \\label{fig:"
+            }),
+            i(3),
+            t({
+                "}",
+                "\\end{figure}"
+            }),
+        }
+    ),
 }
