@@ -63,6 +63,7 @@ return {
             i(1),
             t({
                 "}",
+                "    \\captionsetup{labelfont=bf, textfont=it}",
                 "    \\caption{"
             }),
             i(2),
