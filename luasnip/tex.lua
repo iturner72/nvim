@@ -58,7 +58,7 @@ return {
             t({
                 "\\begin{figure}[ht]",
                 "    \\centering",
-                "    \\includegraphics[width=8cm]{"
+                "    \\includegraphics[width=12cm]{"
                 }),
             i(1),
             t({
