@@ -30,7 +30,7 @@ vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
 local is_mac = vim.fn.has('mac') == 1
-local is_mac = vim.fn.has('wsl') == 1
+local is_wsl = vim.fn.has('wsl') == 1
 
 if is_mac then
     vim.g.vimtex_view_method = 'skim'
