@@ -21,6 +21,8 @@ vim.keymap.set("n", "<Leader>s", function()
     print("spell: " .. tostring(vim.o.spell))
 end)
 
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
 -- tmux vim keybindings for switching panes
 vim.g.tmux_navigator_no_mappings = 1
 vim.api.nvim_set_keymap('n', '<C-h>', ':TmuxNavigateLeft<CR>', {silent = true})
