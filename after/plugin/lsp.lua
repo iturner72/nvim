@@ -34,3 +34,33 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+local swift_lsp_group = vim.api.nvim_create_augroup("swift_lsp_group", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "swift" },
+    callback = function()
+        local root_dir = vim.fs.dirname(vim.fs.find({
+            "Package.swift",
+            ".git",
+        }, { upward = true })[1])
+
+        if root_dir then
+            local client_id = vim.lsp.start({
+                name = "sourcekit-lsp",
+                cmd = { "sourcekit-lsp" },
+                root_dir = root_dir,
+                on_attach = function(_, bufnr)
+                    -- Place any on_attach configurations here, if necessary
+                end,
+                -- Include any additional LSP settings or configurations here
+            })
+
+            -- Attach the LSP client to the current buffer
+            if client_id then
+                vim.lsp.buf_attach_client(0, client_id)
+            end
+        end
+    end,
+    group = swift_lsp_group,
+})
