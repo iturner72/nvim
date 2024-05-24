@@ -11,6 +11,12 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-Space>'] = cmp.mapping.complete(),
 })
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+vim.lsp.with(
+vim.lsp.diagnostic.on_publish_diagnostics, {
+    signs = false,
+  }
+)
 lsp.set_preferences({
 	sign_icons = { }
 })
