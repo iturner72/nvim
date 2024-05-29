@@ -11,6 +11,23 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-Space>'] = cmp.mapping.complete(),
 })
 
+lsp.configure('pylsp', {
+  settings = {
+    pylsp = {
+      configurationSources = {'flake8'},
+      plugins = {
+        pycodestyle = {enabled = false},
+        flake8 = {
+          enabled = true,
+          ignore = {'E501'},  -- Add this line to ignore the line too long error
+        }
+      }
+    }
+  }
+})
+
+lsp.setup()
+
 lsp.set_preferences({
 	sign_icons = { }
 })
@@ -28,8 +45,8 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+  vim.keymap.set("n", "<leader>vfi", function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set("n", "<leader>vwi", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 end)
 
