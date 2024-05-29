@@ -28,9 +28,18 @@ lsp.configure('pylsp', {
 
 lsp.setup()
 
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+vim.lsp.with(
+vim.lsp.diagnostic.on_publish_diagnostics, {
+    signs = true,
+  }
+)
+
 lsp.set_preferences({
 	sign_icons = { }
 })
+
 
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings
