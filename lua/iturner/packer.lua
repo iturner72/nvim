@@ -30,6 +30,15 @@ return require('packer').startup(function(use)
   use('lervag/vimtex')
   use('christoomey/vim-tmux-navigator')
   use('keith/swift.vim')
+  use { 
+      'mfussenegger/nvim-dap',
+      requires = {
+          {'rcarriga/nvim-dap-ui'},
+          {'nvim-neotest/nvim-nio'},
+          {'theHamsta/nvim-dap-virtual-text'},
+		  {'williamboman/mason.nvim'},
+      }
+  }
   -- TODO 
   -- add vimtex!!!!
 
