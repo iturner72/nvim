@@ -35,13 +35,10 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
     signs = true,
   }
 )
-<<<<<<< Updated upstream
 
 lsp.set_preferences({
 	sign_icons = { }
 })
-=======
->>>>>>> Stashed changes
 
 
 lsp.setup_nvim_cmp({
