@@ -35,7 +35,7 @@ local is_wsl = vim.fn.has('wsl') == 1
 if is_mac then
     vim.g.vimtex_view_method = 'skim'
     vim.g.maplocalleader = ","
-elseif is_wsl then
+else 
     vim.g.vimtex_view_method = 'zathura'
     vim.g.maplocalleader = ","
 end
