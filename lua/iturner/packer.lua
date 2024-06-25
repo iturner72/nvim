@@ -14,10 +14,10 @@ return require('packer').startup(function(use)
   }
 
   use({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
+	  'edeneast/nightfox.nvim',
+	  as = 'nightfox',
 	  config = function()
-		  vim.cmd('colorscheme rose-pine')
+		  vim.cmd('colorscheme terafox')
 	  end
   })
 
@@ -30,8 +30,7 @@ return require('packer').startup(function(use)
   use('lervag/vimtex')
   use('christoomey/vim-tmux-navigator')
   use('keith/swift.vim')
-  -- TODO 
-  -- add vimtex!!!!
+  -- use('yacineMTB/ding')
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
