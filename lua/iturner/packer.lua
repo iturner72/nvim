@@ -21,6 +21,18 @@ return require('packer').startup(function(use)
 	  end
   })
 
+
+  use {
+    'yacineMTB/dingllm.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      -- The configuration is in ~/.config/nvim/after/plugin/dingllm.lua
+    end
+  }
+
+
+
+
   use {
       'pwntester/octo.nvim',
         requires = {
@@ -29,7 +41,6 @@ return require('packer').startup(function(use)
             'nvim-tree/nvim-web-devicons',
         }
   }
-
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
   use('ThePrimeagen/harpoon')

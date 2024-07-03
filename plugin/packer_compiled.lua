@@ -104,6 +104,12 @@ _G.packer_plugins = {
     path = "/home/ian/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["dingllm.nvim"] = {
+    config = { "\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0" },
+    loaded = true,
+    path = "/home/ian/.local/share/nvim/site/pack/packer/start/dingllm.nvim",
+    url = "https://github.com/yacineMTB/dingllm.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/ian/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -213,6 +219,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: dingllm.nvim
+time([[Config for dingllm.nvim]], true)
+try_loadstring("\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0", "config", "dingllm.nvim")
+time([[Config for dingllm.nvim]], false)
 -- Config for: nightfox
 time([[Config for nightfox]], true)
 try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\24colorscheme terafox\bcmd\bvim\0", "config", "nightfox")
