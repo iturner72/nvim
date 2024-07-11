@@ -30,6 +30,14 @@ return require('packer').startup(function(use)
         }
   }
 
+  use {
+    'yacineMTB/dingllm.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+    end
+  }
+
+
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
   use('ThePrimeagen/harpoon')
