@@ -11,6 +11,48 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-Space>'] = cmp.mapping.complete(),
 })
 
+lsp.configure('rust_analyzer', {
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = {
+        command = "clippy",
+        allFeatures = true,
+      },
+      procMacro = {
+        enable = true,
+        ignored = {
+            ["leptos-macro"] = {"server"}
+        }
+      },
+      cargo = {
+        allFeatures = true,
+        autoreload = true
+      },
+      rustfmt = {
+        overrideCommand = {"leptosfmt", "--stdin", "--rustfmt"}
+      },
+      inlayHints = {
+        enable = true,
+        typeHints = true,
+        parameterHints = true,
+      },
+      lens = {
+        enable = true,
+        references = true,
+        implementations = true,
+        enumVariantReferences = true,
+        methodReferences = trhe,
+      },
+      hoverActions = {
+        enable = true
+      },
+      callInfo = {
+        full = true
+      },
+    }
+  }
+})
+
 lsp.configure('pylsp', {
   settings = {
     pylsp = {
@@ -62,6 +104,13 @@ end)
 lsp.setup()
 
 local swift_lsp_group = vim.api.nvim_create_augroup("swift_lsp_group", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.rs",
+  callback = function()
+    vim.lsp.buf.format({ async = false })
+  end,
+})
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "swift" },

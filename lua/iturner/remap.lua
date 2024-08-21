@@ -21,11 +21,11 @@ vim.keymap.set("n", "<Leader>s", function()
     print("spell: " .. tostring(vim.o.spell))
 end)
 
--- leptos format toggle
+-- broken toggle
 vim.keymap.set("n", "<leader>f", function()
     vim.lsp.buf.format()
     print("formatting complete")
-end, { desc = "Format file" })
+end, { desc = "format file" })
 
 --vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
