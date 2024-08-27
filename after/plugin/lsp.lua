@@ -20,9 +20,9 @@ lsp.configure('rust_analyzer', {
       },
       procMacro = {
         enable = true,
-        ignored = {
-            ["leptos-macro"] = {"server"}
-        }
+--        ignored = {
+--            ["leptos-macro"] = {"server"}
+--        }
       },
       cargo = {
         allFeatures = true,
@@ -41,7 +41,7 @@ lsp.configure('rust_analyzer', {
         references = true,
         implementations = true,
         enumVariantReferences = true,
-        methodReferences = trhe,
+        methodReferences = true,
       },
       hoverActions = {
         enable = true
