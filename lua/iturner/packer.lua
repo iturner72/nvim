@@ -56,6 +56,7 @@ return require('packer').startup(function(use)
     config = function()
       require('avante.config')
     end,
+    run = 'make', -- Optional, only if you want to use tiktoken_core to calculate tokens count
   }
 
   use {
