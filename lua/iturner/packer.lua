@@ -38,6 +38,27 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'yetone/avante.nvim',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+      'stevearc/dressing.nvim',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        config = function()
+          require('render-markdown').setup({
+            file_types = { "markdown", "Avante" },
+          })
+        end,
+      },
+    },
+    config = function()
+      require('avante.config')
+    end,
+  }
+
+  use {
     'j-hui/fidget.nvim',
     tag = 'legacy',
     config = function()
