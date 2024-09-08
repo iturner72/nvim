@@ -39,6 +39,7 @@ return require('packer').startup(function(use)
 
   use {
     'yetone/avante.nvim',
+    commit = '77d344db77eba3cf7600fc271f9c666b512cffdf',
     requires = {
       'nvim-tree/nvim-web-devicons',
       'stevearc/dressing.nvim',
@@ -114,6 +115,11 @@ return require('packer').startup(function(use)
         },
       })
     end
+  }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
