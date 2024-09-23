@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "rust", "lua", },
+  ensure_installed = { 'bash', 'go', 'c', 'html', 'javascript', 'typescript', 'python', 'lua', 'rust', 'markdown', 'vim', 'vimdoc' },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -21,5 +21,3 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
-
-require("tree-sitter-rstml").setup()
