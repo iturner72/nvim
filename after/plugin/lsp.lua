@@ -96,46 +96,16 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "<leader>vfi", function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
   vim.keymap.set("n", "<leader>vwi", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 end)
 
 lsp.setup()
 
-local swift_lsp_group = vim.api.nvim_create_augroup("swift_lsp_group", { clear = true })
-
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.rs",
   callback = function()
     vim.lsp.buf.format({ async = false })
   end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "swift" },
-    callback = function()
-        local root_dir = vim.fs.dirname(vim.fs.find({
-            "Package.swift",
-            ".git",
-        }, { upward = true })[1])
-
-        if root_dir then
-            local client_id = vim.lsp.start({
-                name = "sourcekit-lsp",
-                cmd = { "sourcekit-lsp" },
-                root_dir = root_dir,
-                on_attach = function(_, bufnr)
-                    -- Place any on_attach configurations here, if necessary
-                end,
-                -- Include any additional LSP settings or configurations here
-            })
-
-            -- Attach the LSP client to the current buffer
-            if client_id then
-                vim.lsp.buf_attach_client(0, client_id)
-            end
-        end
-    end,
-    group = swift_lsp_group,
 })

@@ -7,7 +7,12 @@ return {
   {'edeneast/nightfox.nvim', name = 'nightfox', config = function() vim.cmd('colorscheme terafox') end},
   {'pwntester/octo.nvim', dependencies = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim', 'nvim-tree/nvim-web-devicons'}},
   {'yacineMTB/dingllm.nvim', dependencies = {'nvim-lua/plenary.nvim'}},
-  {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+  {
+      'nvim-treesitter/nvim-treesitter',
+      build = ':TSUpdate',
+      config = function()
+      end,
+  },
   'nvim-treesitter/playground',
   'ThePrimeagen/harpoon',
   'mbbill/undotree',
