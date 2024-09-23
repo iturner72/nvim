@@ -1,6 +1,7 @@
 local is_mac = vim.fn.has('mac') == 1
 local is_wsl = vim.fn.has('wsl') == 1
 local is_arch = vim.fn.has('unix') == 1 and io.popen('uname -a'):read('*a'):match('arch')
+vim.g.have_nerd_font = true
 
 -- lmao
 if is_mac then

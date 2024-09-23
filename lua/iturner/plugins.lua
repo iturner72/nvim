@@ -59,4 +59,11 @@ return {
     end
   },
   {'nvim-lualine/lualine.nvim', dependencies = {'nvim-tree/nvim-web-devicons'}},
+  {
+    'j-hui/fidget.nvim',
+    tag = 'v1.4.5',
+    config = function()
+      require('iturner.fidget')()
+    end,
+  },
 }
