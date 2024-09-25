@@ -49,3 +49,7 @@ smap <silent><expr> <C-[> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-
 imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
 smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
 ]]
+
+-- Quickfix list navigation
+vim.keymap.set("n", "<C-[>", ":cprevious<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-]>", ":cnext<CR>", { noremap = true, silent = true })
