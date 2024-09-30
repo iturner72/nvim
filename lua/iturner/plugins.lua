@@ -1,6 +1,5 @@
 return {
   'folke/lazy.nvim',
-  'wbthomason/packer.nvim', -- Keep Packer temporarily for smooth transition
   'folke/tokyonight.nvim',
   'nvim-lua/plenary.nvim',
   {
@@ -58,7 +57,13 @@ return {
       })
     end
   },
-  {'nvim-lualine/lualine.nvim', dependencies = {'nvim-tree/nvim-web-devicons'}},
+  {'nvim-lualine/lualine.nvim',
+    dependencies = {'nvim-tree/nvim-web-devicons'},
+    config = function()
+      require('nvim-web-devicons').setup {}
+      require('iturner.lualine_config')()
+    end
+  },
   {
     'j-hui/fidget.nvim',
     tag = 'v1.4.5',
