@@ -1,6 +1,6 @@
 local system_prompt =
   'You should replace the code that you are sent, only following the comments. Do not talk at all. Only output valid code. Do not provide any backticks that surround the code. Never ever output backticks like this ```. Any comment that is asking you for something should be removed after you satisfy them. Other comments should left alone. Do not output backticks'
-local helpful_prompt = 'You are a helpful assistant. What I have sent are my notes so far. You are very curt, yet helpful.'
+local helpful_prompt = 'You are a helpful assistant. What I have sent are my notes so far.'
 local dingllm = require 'dingllm'
 
 --local function groq_replace()
@@ -26,7 +26,7 @@ local dingllm = require 'dingllm'
 local function openai_replace()
   dingllm.invoke_llm_and_stream_into_editor({
     url = 'https://api.openai.com/v1/chat/completions',
-    model = 'gpt-4o',
+    model = 'gpt-4o-2024-08-06',
     api_key_name = 'OPENAI_API_KEY',
     system_prompt = system_prompt,
     replace = true,
@@ -36,7 +36,7 @@ end
 local function openai_help()
   dingllm.invoke_llm_and_stream_into_editor({
     url = 'https://api.openai.com/v1/chat/completions',
-    model = 'gpt-4o',
+    model = 'gpt-4o-2024-08-06',
     api_key_name = 'OPENAI_API_KEY',
     system_prompt = helpful_prompt,
     replace = false,
