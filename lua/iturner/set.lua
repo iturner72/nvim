@@ -34,3 +34,7 @@ vim.opt.clipboard = "unnamedplus"
 -- auto wrapping for md and tex files
 vim.cmd [[autocmd FileType markdown set tw=80 wrap]]
 vim.cmd [[autocmd FileType tex set tw=80 wrap]]
+
+-- fold stuff
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99 -- Start with all folds open

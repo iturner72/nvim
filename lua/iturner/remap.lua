@@ -50,6 +50,66 @@ imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '
 smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
 ]]
 
+-- Use treesitter for folding when available
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"python", "rust"},
+  callback = function()
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
+  end
+})
+
+-- Adjust fold settings for specific file types
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "python",
+  callback = function()
+    vim.opt_local.foldnestmax = 3
+  end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "rust",
+  callback = function()
+    vim.opt_local.foldnestmax = 2
+  end
+})
+
+-- Code folding keymaps
+vim.keymap.set("n", "<leader>za", "za", { desc = "Toggle fold under cursor" })
+vim.keymap.set("n", "<leader>zo", "zo", { desc = "Open fold under cursor" })
+vim.keymap.set("n", "<leader>zc", "zc", { desc = "Close fold under cursor" })
+vim.keymap.set("n", "<leader>zR", "zR", { desc = "Open all folds" })
+vim.keymap.set("n", "<leader>zM", "zM", { desc = "Close all folds" })
+vim.keymap.set("n", "<leader>zj", "zj", { desc = "Move to next fold" })
+vim.keymap.set("n", "<leader>zk", "zk", { desc = "Move to previous fold" })
+vim.keymap.set("n", "<leader>zd", "zd", { desc = "Delete fold under cursor" })
+vim.keymap.set("n", "<leader>zE", "zE", { desc = "Eliminate all folds in the window" })
+
+-- Function to toggle folding
+local function toggle_fold_column()
+    if vim.wo.foldcolumn == '0' then
+        vim.wo.foldcolumn = '4'
+    else
+        vim.wo.foldcolumn = '0'
+    end
+end
+
+vim.keymap.set("n", "<leader>zf", toggle_fold_column, { desc = "Toggle fold column" })
+
+-- Toggle between manual and syntax based folds
+local function toggle_fold_method()
+    if vim.wo.foldmethod == 'indent' then
+        vim.wo.foldmethod = 'expr'
+        vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+        print("Fold method: Treesitter")
+    else 
+        vim.wo.foldmethod = 'indent'
+        print("Fold method: indent")
+    end
+end
+
+vim.keymap.set("n", "<leader>zt", toggle_fold_method, { desc = "Toggle fold method" })
+
 -- Quickfix list navigation
 vim.keymap.set("n", "<C-[>", ":cprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-]>", ":cnext<CR>", { noremap = true, silent = true })
