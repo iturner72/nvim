@@ -39,7 +39,7 @@ avante.setup({
   windows = {
     position = "right",
     wrap = true,
-    width = 30,
+    width = 40,
     sidebar_header = {
       align = "center",
       rounded = true,
