@@ -58,6 +58,7 @@ lsp.configure('pylsp', {
     pylsp = {
       configurationSources = {'flake8'},
       plugins = {
+        pyflakes = {enabled = false},  -- Disable Pyflakes if using Flake8
         pycodestyle = {enabled = false},
         flake8 = {
           enabled = true,
