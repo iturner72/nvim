@@ -36,19 +36,34 @@ vim.api.nvim_set_keymap('n', '<C-k>', ':TmuxNavigateUp<CR>', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-l>', ':TmuxNavigateRight<CR>', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-\\>', ':TmuxNavigatePrevious<CR>', {silent = true})
 
--- LuaSnip bindings 
-vim.cmd[[
-" Expand snippets in insert mode with Tab
-imap <silent><expr> <Tab> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' : '<Tab>'
+local luasnip = require("luasnip")
 
-" Jump forward through tabstops in insert and visual mode with Control-[
-imap <silent><expr> <C-[> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-[>'
-smap <silent><expr> <C-[> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-[>'
+-- Expand snippets in insert mode with Tab
+vim.keymap.set("i", "<Tab>", function()
+  if luasnip.expandable() then
+    return "<Plug>luasnip-expand-snippet"
+  else
+    return "<Tab>"
+  end
+end, { expr = true, silent = true })
 
-" Jump backward through tabstops in insert and visual mode with Shift-Tab
-imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
-smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
-]]
+-- Jump forward through tabstops in insert and visual mode with Control-[
+vim.keymap.set({"i", "s"}, "<C-[>", function()
+  if luasnip.jumpable(1) then
+    return "<Plug>luasnip-jump-next"
+  else
+    return "<C-[>"
+  end
+end, { expr = true, silent = true })
+
+-- Jump backward through tabstops in insert and visual mode with Shift-Tab
+vim.keymap.set({"i", "s"}, "<S-Tab>", function()
+  if luasnip.jumpable(-1) then
+    return "<Plug>luasnip-jump-prev"
+  else
+    return "<S-Tab>"
+  end
+end, { expr = true, silent = true })
 
 -- Use treesitter for folding when available
 vim.api.nvim_create_autocmd("FileType", {
@@ -63,7 +78,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "python",
   callback = function()
-    vim.opt_local.foldnestmax = 3
+    vim.opt_local.foldnestmax = 1
   end
 })
 
