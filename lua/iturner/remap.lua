@@ -78,7 +78,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "python",
   callback = function()
-    vim.opt_local.foldnestmax = 1
+    vim.opt_local.foldnestmax = 2
   end
 })
 
