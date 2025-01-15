@@ -60,17 +60,18 @@ lsp.configure('pylsp', {
       plugins = {
         pyflakes = {enabled = false},  -- Disable Pyflakes if using Flake8
         pycodestyle = {enabled = false},
-        flake8 = {
-          enabled = true,
-          ignore = {'E501'},  -- Add this line to ignore the line too long error
-        }
+        flake8 = {enabled = false},
+        ruff = {enabled = false}
       }
     }
   }
 })
 
-lsp.setup()
-
+require('lspconfig').ruff.setup({
+  on_attach = function(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = false
+  end,
+})
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
 vim.lsp.with(
@@ -105,7 +106,7 @@ end)
 lsp.setup()
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.rs",
+  pattern = {"*.rs", "*.py"},
   callback = function()
     vim.lsp.buf.format({ async = false })
   end,
