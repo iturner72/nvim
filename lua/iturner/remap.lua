@@ -128,3 +128,7 @@ vim.keymap.set("n", "<leader>zt", toggle_fold_method, { desc = "Toggle fold meth
 -- Quickfix list navigation
 vim.keymap.set("n", "<C-[>", ":cprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-]>", ":cnext<CR>", { noremap = true, silent = true })
+
+-- Add these to your remap.lua, keeping your existing tmux mappings intact
+vim.keymap.set("n", "<leader>[", "<C-o>", { desc = "Jump back" })
+vim.keymap.set("n", "<leader>]", "<C-i>", { desc = "Jump forward" })
