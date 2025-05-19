@@ -38,3 +38,6 @@ vim.cmd [[autocmd FileType tex set tw=80 wrap]]
 -- fold stuff
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99 -- Start with all folds open
+
+-- molten nvim virtual env path
+vim.g.python3_host_prog=vim.fn.expand("~/.virtualenvs/neovim/bin/python3")
