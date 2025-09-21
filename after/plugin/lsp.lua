@@ -24,6 +24,9 @@ lsp.configure('rust_analyzer', {
 --            ["leptos-macro"] = {"server"}
 --        }
       },
+      diagnostics = {
+          disabled = { "macro-error" },
+      },
       cargo = {
         allFeatures = true,
         autoreload = true
